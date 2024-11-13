@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nawi Prime - Hosting Murah Dan Premium DiIndonesia</title>
+	<style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --text-color: #1f2937;
+            --light-gray: #f3f4f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #f8fafc;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .nav {
+            background: white;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Features Grid */
+        .features {
+            padding: 4rem 2rem;
+            background: white;
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 4rem 2rem;
+            background: var(--light-gray);
+        }
+
+        .pricing-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .plan {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .plan.popular::before {
+            content: "Terpopuler";
+            position: absolute;
+            top: 1rem;
+            right: -2rem;
+            background: var(--accent-color);
+            color: white;
+            padding: 0.5rem 3rem;
+            transform: rotate(45deg);
+        }
+
+        .plan:hover {
+            transform: translateY(-10px);
+        }
+
+        .plan h3 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 2rem;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .features-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .features-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .features-list li i {
+            color: var(--primary-color);
+            margin-right: 0.5rem;
+        }
+
+        /* Domain Search */
+        .domain-search {
+            padding: 4rem 2rem;
+            background: white;
+            text-align: center;
+        }
+
+        .search-box {
+            max-width: 600px;
+            margin: 2rem auto;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 1rem;
+            border: 2px solid #eee;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: var(--secondary-color);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 4rem 2rem;
+            background: var(--light-gray);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 2rem auto;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-card img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary-color);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto 2rem;
+        }
+
+        .footer-column h4 {
+            margin-bottom: 1rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-column ul li a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+        }
+
+        .footer-column ul li a:hover {
+            opacity: 1;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                padding: 1rem;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .search-box {
+                flex-direction: column;
+            }
+
+            .plan {
+                margin: 0 1rem;
+            }
+        }
+
+        /* Additional Features */
+        .uptime-guarantee {
+            background: #dbeafe;
+            color: var(--primary-color);
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        .ssl-badge {
+            display: inline-block;
+            background: #059669;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 0.5rem 0;
+        }
+
+        .datacenter-map {
+            max-width: 100%;
+            height: auto;
+            margin: 2rem 0;
+        }
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="logo">Nawi Prime</div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links">
+                <a href="#home">Beranda</a>
+                <a href="#features">Fitur</a>
+                <a href="#pricing">Harga</a>
+                <a href="#contact">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Hosting Murah Terbaik Di Indonesia</h1> 
+	<h3>Ingin Website Anda Lebih Cepat dan Aman? Pilih Hosting Server di Nawi Prime!</h3>
+<br>
+<p>Apakah Anda mencari hosting server yang cepat, terpercaya, dan terjangkau? Nawi Prime adalah pilihan yang tepat untuk Anda! Kami menawarkan layanan hosting server dengan teknologi terkini, dijamin stabil, dan memiliki dukungan 24/7 untuk memastikan website atau aplikasi Anda selalu berjalan optimal.</p>
+            <a href="#pricing" class="btn">Belanja Sekarang</a>
+        </div>
+    </section>
+
+    <section class="domain-search">
+        <h2>Cari Domain Anda</h2>
+        <div class="search-box">
+            <input type="text" placeholder="Masukkan nama domain Anda...">
+            <button class="btn">Cari Domain</button>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="features-container">
+            <h2>Fitur Unggulan</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-rocket fa-2x"></i>
+                    <h3>Performa Tinggi</h3>
+                    <p>Server SSD dengan teknologi terbaru</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt fa-2x"></i>
+                    <h3>Keamanan Premium</h3>
+                    <p>SSL Gratis & DDoS Protection</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-headset fa-2x"></i>
+                    <h3>Support 24/7</h3>
+                    <p>Tim teknis siap membantu</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-server fa-2x"></i>
+                    <h3>Backup Otomatis</h3>
+                    <p>Data Anda selalu aman</p>
+                </div>
+            </div>
+        </div>
+        <div class="uptime-guarantee">
+            <i class="fas fa-clock"></i>
+            <strong>99.9% Uptime Guarantee</strong>
+        </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <h2>Paket Hosting</h2>
+        <div class="pricing-container">
+            <div class="plan">
+                <h3>Beginner</h3>
+                <div class="price">
+                    Rp 24.800<span>/bulan</span>
+                </div>
+                <div class="ssl-badge">
+                    <i class="fas fa-lock"></i> SSL Gratis
+                </div>
+                <ul class="features-list">
+                    <li><i class="fas fa-check"></i> 2GB RAM</li>
+                    <li><i class="fas fa-check"></i> 70GB SSD Storage</li>
+                    <li><i class="fas fa-check"></i> 2 CPU Core</li>
+                    <li><i class="fas fa-check"></i> 5TB Bandwith</li>
+                    <li><i class="fas fa-check"></i> 15 Subdomains</li>
+		    <li><i class="fas fa-check"></i> 10 Website</li>
+		    <li><i class="fas fa-check"></i> Gratis SSL</li>
+                    <li><i class="fas fa-check"></i> cPanel/Plesk</li>
+ 	            <li><i class="fas fa-check"></i> 24/7 Support</li>
+		    <li><i class="fas fa-check"></i> Gratis Backup Mingguan</li>
+                </ul>
+                <a href="#" class="btn">Pilih Paket</a>
+            </div>
+            <div class="plan popular">
+                <h3>Plus</h3>
+                <div class="price">
+                    Rp 56.800<span>/bulan</span>
+                </div>
+                <div class="ssl-badge">
+                    <i class="fas fa-lock"></i> SSL Wildcard
+                </div>
+                <ul class="features-list">
+                    <li><i class="fas fa-check"></i> 4GB RAM</li>
+                    <li><i class="fas fa-check"></i> 150GB NVMe Storage</li>
+                    <li><i class="fas fa-check"></i> 4 CPU Cores</li>
+                    <li><i class="fas fa-check"></i> 10TB Bandwith</li>
+                    <li><i class="fas fa-check"></i> 25 SubDomains</li>
+		    <li><i class="fas fa-check"></i> 30 Website</li>
+                    <li><i class="fas fa-check"></i> Gratis SSL</li>
+		    <li><i class="fas fa-check"></i> cPanel/Plesk</li>
+                    <li><i class="fas fa-check"></i> 24/7 Priority Support</li>
+  	            <li><i class="fas fa-check"></i> Gratis Backup Harian</li>
+                </ul>
+                
+                <a href="#" class="btn">Pilih Paket</a>
+            </div>
+            <div class="plan">
+                <h3>Pro</h3>
+                <div class="price">
+                    Rp 139.800<span>/bulan</span>
+                </div>
+                <div class="ssl-badge">
+                    <i class="fas fa-lock"></i> SSL Wildcard Premium</div>
+                <ul class="features-list">
+                    <li><i class="fas fa-check"></i> 8GB RAM</li>
+                    <li><i class="fas fa-check"></i> 300GB NVMe Storage</li>
+                    <li><i class="fas fa-check"></i> 16 CPU Cores</li>
+                    <li><i class="fas fa-check"></i> Unlimited Bandwidth</l>
+                    <li><i class="fas fa-check"></i> SubDomain Gratis</li>
+		    <li><i class="fas fa-check"></i> Unlimited Website</li>
+		    <li><i class="fas fa-check"></i> Gratis SSL</li>
+                    <li><i class="fas fa-check"></i> cPanel/Plesk</li>
+                    <li><i class="fas fa-check"></i> 24/7 VIP Support</li>
+		    <li><i class="fas fa-check"></i> Gratis Backup Harian</li>
+                </ul>
+                <a href="#" class="btn">Pilih Paket</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <h2>Apa Kata Mereka?</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <h4>Ahmad Sanjaya</h4>
+                <p>"Layanan hosting terbaik dan murah yang pernah saya gunakan. Support responsif dan server sangat stabil."</p>
+            </div>
+            <div class="testimonial-card">
+                <h4>Budi Santoso</h4>
+                <p>"Nawi Prime membantu bisnis online saya tumbuh dengan performa server yang luar biasa."</p>
+            </div>
+            <div class="testimonial-card">
+                <h4>Diana Putri</h4>
+                <p>"Fitur lengkap dengan harga yang sangat bersaing. Sangat direkomendasikan!"</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="datacenter-locations">
+        <div class="features-container">
+            <h2>Lokasi Data Center</h2>
+            <p>Server kami tersebar di beberapa lokasi strategis didunia:</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-server fa-2x"></i>
+                    <h3>Jakarta, Indonesia</h3>
+                    <p>Data Center Utama</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-server fa-2x"></i>
+                    <h3>Singapore</h3>
+                    <p>Data Center Asia</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-server fa-2x"></i>
+                    <h3>Amsterdam, Netherlands</h3>
+                    <p>Data Center Eropa</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h4>Nawi Prime</h4>
+                <ul>
+                    <li><a href="#">Tentang Kami</a></li>
+                    <li><a href="#">Karir</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Kontak</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Layanan</h4>
+                <ul>
+                    <li><a href="#">Web Hosting</a></li>
+                    <li><a href="#">Cloud VPS</a></li>
+                    <li><a href="#">Dedicated Server</a></li>
+                    <li><a href="#">Domain</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Pusat Bantuan</a></li>
+                    <li><a href="#">Status Server</a></li>
+                    <li><a href="#">Knowledge Base</a></li>
+                    <li><a href="#">API Documentation</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Hubungi Kami</h4>
+                <ul>
+                    <li><i class="fas fa-phone"></i> 0895-1929-9897</li>
+                    <li><i class="fas fa-envelope"></i> support@nawiprime.id</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</li>
+                </ul>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
+            <p>&copy; 2024 Mars. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Sticky Navigation
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+                nav.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            } else {
+                nav.style.background = 'white';
+                nav.style.boxShadow = 'none';
+            }
+        });
+
+        // Domain Search Animation
+        const searchInput = document.querySelector('.search-box input');
+        searchInput.addEventListener('focus', () => {
+            searchInput.style.boxShadow = '0 0 0 2px var(--primary-color)';
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.style.boxShadow = 'none';
+        });
+    </script>
+</body>
+</html>
